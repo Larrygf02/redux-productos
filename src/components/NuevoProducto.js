@@ -1,6 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { crearNuevoProductoAction } from '../actions/productosAction'
+import { useDispatch } from 'react-redux'
+
 
 const NuevoProducto = () => {
+    //state
+    const [ nombre, guardarNombre ] = useState('')
+    const [ precio, guardarPrecio ] = useState('');
+
+    // crear nuevo producto
+    const dispatch = useDispatch()
+    const agregarProducto = (producto) => dispatch(crearNuevoProductoAction(producto))
+
+    // Agregar nuevo producto
+    const submitNuevoProducto = e => {
+        e.preventDefault();
+        agregarProducto({
+            nombre,
+            precio
+        })
+        // validar el formulario
+        if (nombre.trim() === '' || precio.trim === '') {
+            return;
+        }
+        // crear el nuevo producto
+        agregarProducto({
+            nombre,
+            precio
+        })
+        // reidreccionar
+    }
+
     return (
 
         <div className="row justify-content-center mt-5">
@@ -8,13 +38,15 @@ const NuevoProducto = () => {
                 <div className="card">
                     <div className="card-body">
                         <h2 className="text-center mb-4 font-weight-bold ">Agregar Nuevo Libro</h2>
-                        <form>
+                        <form onSubmit={submitNuevoProducto}>
                             <div className="form-group">
                                 <label>Nombre Libro</label>
                                 <input 
                                     type="text" 
                                     className="form-control" 
-                                    placeholder="Nombre Libro" 
+                                    placeholder="Nombre Libro"
+                                    value={nombre}
+                                    onChange={ e => guardarNombre(e.target.value)}
                                 />
                             </div>
                             <div className="form-group">
@@ -23,6 +55,8 @@ const NuevoProducto = () => {
                                     type="text" 
                                     className="form-control" 
                                     placeholder="Precio Libro" 
+                                    value={precio}
+                                    onChange={ e => guardarPrecio(e.target.value)}
                                 />
                             </div>
 
