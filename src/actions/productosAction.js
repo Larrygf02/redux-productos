@@ -11,7 +11,7 @@ export function crearNuevoProductoAction(producto) {
     return (dispatch) => {
         dispatch(nuevoProducto());
         // Insertar en la api
-        clienteAxios.post('/prddoductos', producto)
+        clienteAxios.post('/productos', producto)
             .then(respuesta => {
                 console.log(respuesta)
                 dispatch( agregarProductoExito(producto))
