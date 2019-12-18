@@ -27,7 +27,7 @@ export default function(state=initialState, action) {
         case AGREGAR_PRODUCTO_ERROR:
             return {
                 ...state,
-                error: false
+                error: true
             }
         default:
             return state;

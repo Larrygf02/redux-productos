@@ -15,10 +15,6 @@ const NuevoProducto = () => {
     // Agregar nuevo producto
     const submitNuevoProducto = e => {
         e.preventDefault();
-        agregarProducto({
-            nombre,
-            precio
-        })
         // validar el formulario
         if (nombre.trim() === '' || precio.trim === '') {
             return;

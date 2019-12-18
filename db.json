@@ -1,14 +1,19 @@
 {
-    "productos": [
-        {
-            "id": 1,
-            "nombre": "Aprendiendo Redux",
-            "precio": 30
-        },
-        {
-            "id": 1,
-            "nombre": "Redux Middle",
-            "precio": 50
-        }
-    ]
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Aprendiendo Redux",
+      "precio": 30
+    },
+    {
+      "id": 1,
+      "nombre": "Redux Middle",
+      "precio": 50
+    },
+    {
+      "nombre": "Redux",
+      "precio": "40",
+      "id": 2
+    }
+  ]
 }
