@@ -26,7 +26,7 @@ const Producto = ({producto}) => {
                 'El producto se elimino correctamente',
                 'success'
               )
-              dispatch(borrarProductoAction())
+              dispatch(borrarProductoAction(id))
             }
           })
     }

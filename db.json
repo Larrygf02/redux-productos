@@ -6,11 +6,6 @@
       "precio": 30
     },
     {
-      "id": 3,
-      "nombre": "Redux Middle",
-      "precio": 50
-    },
-    {
       "nombre": "Redux",
       "precio": "40",
       "id": 2
