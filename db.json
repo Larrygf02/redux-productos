@@ -9,6 +9,11 @@
       "nombre": "Redux",
       "precio": "40",
       "id": 2
+    },
+    {
+      "nombre": "Node advanced",
+      "precio": "300",
+      "id": 3
     }
   ]
 }
