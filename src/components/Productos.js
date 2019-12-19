@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Producto from './Producto'
 import { useDispatch, useSelector } from 'react-redux'
-import { obtenerProductosAction, obtenerProductosComienzo } from '../actions/productosAction'
+import { obtenerProductosAction } from '../actions/productosAction'
 
 const Productos = () => {
     // Mandar llamar la funcion principal
@@ -32,7 +32,7 @@ const Productos = () => {
                                 </thead>
                                 <tbody>
                                     {productos.map( producto => (
-                                        <Producto producto={producto}></Producto>
+                                        <Producto key={producto.id} producto={producto}></Producto>
                                     ))}
                                 </tbody>
                             </table>

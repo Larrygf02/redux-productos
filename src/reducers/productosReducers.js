@@ -4,7 +4,10 @@ import {
     AGREGAR_PRODUCTO_ERROR,
     COMENZAR_DESCARGA_PRODUCTOS,
     COMENZAR_DESCARGA_PRODUCTOS_EXITOSA,
-    COMENZAR_DESCARGA_PRODUCTOS_ERROR
+    COMENZAR_DESCARGA_PRODUCTOS_ERROR,
+    OBTENER_PRODUCTO_ELIMINAR,
+    PRODUCTO_ELIMINADO_EXITO,
+    PRODUCTO_ELIMINADO_ERROR
 } from '../types'
 
 const initialState = {
@@ -48,6 +51,22 @@ export default function(state=initialState, action) {
             return {
                 ...state,
                 productos: [],
+                error: true
+            }
+        case OBTENER_PRODUCTO_ELIMINAR:
+            return {
+                ...state,
+                error: null
+            }
+        case PRODUCTO_ELIMINADO_EXITO:
+            return {
+                ...state,
+                error: null,
+                productos: state.productos.filter(producto => producto.id !== action.payload)
+            }
+        case PRODUCTO_ELIMINADO_ERROR:
+            return {
+                ...state,
                 error: true
             }
         default:
