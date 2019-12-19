@@ -1,7 +1,10 @@
 import {
     AGREGAR_PRODUCTO,
     AGREGAR_PRODUCTO_EXITO,
-    AGREGAR_PRODUCTO_ERROR
+    AGREGAR_PRODUCTO_ERROR,
+    COMENZAR_DESCARGA_PRODUCTOS,
+    COMENZAR_DESCARGA_PRODUCTOS_EXITOSA,
+    COMENZAR_DESCARGA_PRODUCTOS_ERROR
 } from '../types'
 
 import clienteAxios from '../config/axios'
@@ -35,3 +38,15 @@ export const agregarProductoExito = producto => ({
 export const agregarProductoError = () => ({
     type: AGREGAR_PRODUCTO_ERROR
 })
+
+//obtener estado de productos
+export function obtenerProductosAction() {
+    return (dispatch) => {
+        dispatch( obtenerProductosComienzo())
+    } 
+}
+
+export const obtenerProductosComienzo = () => ({
+    type: COMENZAR_DESCARGA_PRODUCTOS
+})
+
