@@ -3,12 +3,12 @@
     {
       "id": 1,
       "nombre": "Aprendiendo Redux",
-      "precio": "50"
+      "precio": "199"
     },
     {
+      "id": 2,
       "nombre": "Redux",
-      "precio": "40",
-      "id": 2
+      "precio": "50"
     },
     {
       "nombre": "Node advanced",
