@@ -107,9 +107,28 @@ export const eliminarProductoError = () => ({
 export function obtenerProductoEditarAction(id) {
     return (dispatch) => {
         dispatch(obtenerProductoAction())
+        //obtener producto de la api
+        clienteAxios.get(`/productos/${id}`)
+                .then(respuesta => {
+                    console.log(respuesta.data);
+                    dispatch(obtenerProductoEditarExito(respuesta.data))
+                })
+                .catch(error => {
+                    console.log(error);
+                    dispatch(obtenerProductoEditarError())
+                })
     }
 }
 
 export const obtenerProductoAction = () => ({
     type: OBTENER_PRODUCTO_EDITAR
+})
+
+export const obtenerProductoEditarExito = producto => ({
+    type: PRODUCTO_EDITAR_EXITO,
+    payload: producto
+})
+
+export const obtenerProductoEditarError = producto => ({
+    type: PRODUCTO_EDITAR_ERROR
 })
