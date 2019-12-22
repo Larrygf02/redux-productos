@@ -10,7 +10,10 @@ import {
     PRODUCTO_ELIMINADO_ERROR,
     OBTENER_PRODUCTO_EDITAR,
     PRODUCTO_EDITAR_EXITO,
-    PRODUCTO_EDITAR_ERROR
+    PRODUCTO_EDITAR_ERROR,
+    COMENZAR_EDICION_PRODUCTO,
+    PRODUCTO_EDITADO_EXITO,
+    PRODUCTO_EDITADO_ERROR
 } from '../types'
 
 import clienteAxios from '../config/axios'
@@ -131,4 +134,29 @@ export const obtenerProductoEditarExito = producto => ({
 
 export const obtenerProductoEditarError = producto => ({
     type: PRODUCTO_EDITAR_ERROR
+})
+
+/*Modifica un producto */
+export function editarProductoAction(producto) {
+    return (dispatch) => {
+        dispatch(comenzarEdicionProducto())
+        // consultar la api
+        clienteAxios.put(`/productos/${producto.id}`, producto)
+                    .then(respuesta => {
+                        console.log(respuesta.data);
+                        dispatch(editarProductoExito(producto))
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+    }
+}
+
+export const comenzarEdicionProducto = () => ({
+    type: COMENZAR_EDICION_PRODUCTO
+})
+
+export const editarProductoExito = producto => ({
+    type: PRODUCTO_EDITADO_EXITO,
+    payload: producto
 })

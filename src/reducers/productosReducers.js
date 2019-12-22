@@ -10,7 +10,10 @@ import {
     PRODUCTO_ELIMINADO_ERROR,
     OBTENER_PRODUCTO_EDITAR,
     PRODUCTO_EDITAR_EXITO,
-    PRODUCTO_EDITAR_ERROR
+    PRODUCTO_EDITAR_ERROR,
+    COMENZAR_EDICION_PRODUCTO,
+    PRODUCTO_EDITADO_EXITO,
+    PRODUCTO_EDITADO_ERROR
 } from '../types'
 
 const initialState = {
@@ -88,6 +91,22 @@ export default function(state=initialState, action) {
                 producto: action.payload
             }
         case PRODUCTO_EDITAR_ERROR:
+            return {
+                ...state,
+                error: true
+            }
+        case COMENZAR_EDICION_PRODUCTO:
+            return {
+                ...state,
+                error: null
+            }
+        case PRODUCTO_EDITADO_EXITO:
+            return {
+                ...state,
+                error:null,
+                productos: state.productos.map(producto => producto.id === action.payload.id ? producto = action.payload : producto)
+            }
+        case PRODUCTO_EDITADO_ERROR:
             return {
                 ...state,
                 error: true
