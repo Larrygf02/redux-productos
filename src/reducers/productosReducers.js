@@ -29,12 +29,12 @@ export default function(state=initialState, action) {
         case AGREGAR_PRODUCTO:
             return {
                 ...state,
-                error: null
+                loading: true
             }
         case AGREGAR_PRODUCTO_EXITO:
             return {
                 ...state,
-                error: null,
+                loading: false,
                 productos: [...state.productos, action.payload]
             }
         case AGREGAR_PRODUCTO_ERROR:
