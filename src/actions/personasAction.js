@@ -12,7 +12,6 @@ export function obtenerPersonasAction() {
         // consultar la api
         clienteAxios.get('/personas')
             .then(respuesta => {
-                console.log(respuesta.data)
                 dispatch(descargaPersonasExito(respuesta.data))
             })
             .catch(error => {

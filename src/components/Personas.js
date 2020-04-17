@@ -6,7 +6,7 @@ const Personas = () => {
     // Mandar llamar la funcion principal
     const dispatch = useDispatch()
     useEffect(() => {
-        const cargarPersonas = () => dispatch(obtenerPersonasAction)
+        const cargarPersonas = () => dispatch(obtenerPersonasAction())
         cargarPersonas();
     }, []);
 
@@ -25,6 +25,14 @@ const Personas = () => {
                         <th scope="col">Edad</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {personas.map(persona => (
+                        <tr key={persona.id}>
+                            <td>{persona.nombre}</td>
+                            <td>{persona.edad}</td>
+                        </tr>
+                    ))}
+                </tbody>
             </table>
         </Fragment>
     )
