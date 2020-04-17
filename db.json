@@ -20,5 +20,17 @@
       "precio": "340",
       "id": 7
     }
+  ],
+  "personas": [
+    {
+      "id": 1,
+      "nombre": "Grace",
+      "edad": 26
+    },
+    {
+      "id": 2,
+      "nombre": "Raul",
+      "edad": 26
+    }
   ]
 }
