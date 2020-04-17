@@ -55,7 +55,8 @@ export function obtenerProductosAction() {
         //consultar la api
         clienteAxios.get('/productos')
                 .then(respuesta => {
-                   dispatch(descargaProductosExitosa(respuesta.data))
+                    console.log(respuesta.data)
+                    dispatch(descargaProductosExitosa(respuesta.data))
                 })
                 .catch(error => {
                     console.log(error);

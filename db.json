@@ -1,11 +1,6 @@
 {
   "productos": [
     {
-      "id": 1,
-      "nombre": "Aprendiendo Redux",
-      "precio": "199"
-    },
-    {
       "id": 2,
       "nombre": "Redux",
       "precio": "50"
@@ -14,6 +9,21 @@
       "nombre": "Node advanced",
       "precio": "300",
       "id": 3
+    },
+    {
+      "nombre": "Este es un libro",
+      "precio": "34",
+      "id": 4
+    },
+    {
+      "nombre": "Graphql",
+      "precio": "20",
+      "id": 5
+    },
+    {
+      "nombre": "Este es un nuevo libro",
+      "precio": "243",
+      "id": 6
     }
   ]
 }
