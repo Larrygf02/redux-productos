@@ -6,11 +6,11 @@ import {
 import clienteAxios from '../config/axios'
 
 //obtener estado de personas
-export function obtenerPersonasAction(persona) {
+export function obtenerPersonasAction() {
     return (dispatch) => {
         dispatch(obtenerPersonasComienzo())
         // consultar la api
-        clienteAxios.get('/personas', persona)
+        clienteAxios.get('/personas')
             .then(respuesta => {
                 console.log(respuesta.data)
                 dispatch(descargaPersonasExito(respuesta.data))

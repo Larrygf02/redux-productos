@@ -9,9 +9,23 @@ const Personas = () => {
         const cargarPersonas = () => dispatch(obtenerPersonasAction)
         cargarPersonas();
     }, []);
+
+    // acceder al state
+    const loading = useSelector(state => state.personas.loading)
+    const error = useSelector(state => state.personas.error)
+    const personas = useSelector(state => state.personas.personas)
+    console.log(personas)
     return (
         <Fragment>
-            <h2>Listado de personas</h2>
+            <h2 className="text-center my-5">Listado de personas</h2>
+            <table className="table table-striped">
+                <thead className="bg-primary table-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Edad</th>
+                    </tr>
+                </thead>
+            </table>
         </Fragment>
     )
 }
