@@ -1,6 +1,11 @@
 {
   "productos": [
     {
+      "id": 1,
+      "nombre": "Golang",
+      "precio": "20"
+    },
+    {
       "id": 2,
       "nombre": "Redux Other",
       "precio": "50"
@@ -30,11 +35,13 @@
   ],
   "compras": [
     {
+      "id": 1,
       "persona": 1,
       "producto": 1,
       "cantidad": 1
     },
     {
+      "id": 2,
       "persona": 2,
       "producto": 2,
       "cantidad": 1

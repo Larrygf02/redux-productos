@@ -17,7 +17,6 @@ const Compras = () => {
     const loading = useSelector(state => state.compras.loading)
     const error = useSelector(state => state.compras.error)
     const compras = useSelector(state => state.compras.compras)
-    console.log(compras)
     return (
         <Fragment>
             {error ? <div className="font-weight-bold alert alert-danger text-center mt-4">Hubo un error</div> : null}
