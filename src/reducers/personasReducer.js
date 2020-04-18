@@ -6,6 +6,7 @@ import {
     PERSONA_ELIMINADO_EXITO,
     PERSONA_ELIMINADO_ERROR
 } from '../types'
+import { AGREGAR_PERSONA, AGREGAR_PERSONA_EXITO, AGREGAR_PERSONA_ERROR } from '../types/personaType'
 
 const initialState = {
     personas: [],
@@ -49,6 +50,22 @@ export default function(state=initialState, action) {
                 personas: state.personas.filter(persona => persona.id !== action.payload)
             }
         case PERSONA_ELIMINADO_ERROR:
+            return {
+                ...state,
+                error: true
+            }
+        case AGREGAR_PERSONA:
+            return {
+                ...state,
+                loading: true
+            }
+        case AGREGAR_PERSONA_EXITO:
+            return {
+                ...state,
+                loading: false,
+                personas: [...state.personas, action.payload]
+            }
+        case AGREGAR_PERSONA_ERROR:
             return {
                 ...state,
                 error: true
