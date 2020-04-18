@@ -27,5 +27,17 @@
       "edad": "26",
       "id": 2
     }
+  ],
+  "compras": [
+    {
+      "persona": 1,
+      "producto": 1,
+      "cantidad": 1
+    },
+    {
+      "persona": 2,
+      "producto": 2,
+      "cantidad": 1
+    }
   ]
 }
