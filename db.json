@@ -14,23 +14,7 @@
       "nombre": "Este es un nuevo libro",
       "precio": "243",
       "id": 6
-    },
-    {
-      "nombre": "Nuevo Libro",
-      "precio": "340",
-      "id": 7
     }
   ],
-  "personas": [
-    {
-      "id": 1,
-      "nombre": "Grace",
-      "edad": 26
-    },
-    {
-      "id": 2,
-      "nombre": "Raul",
-      "edad": 26
-    }
-  ]
+  "personas": []
 }

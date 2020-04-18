@@ -1,7 +1,10 @@
 import {
     COMENZAR_DESCARGA_PERSONAS,
     COMENZAR_DESCARGA_PERSONAS_EXITO,
-    COMENZAR_DESCARGA_PERSONAS_ERROR
+    COMENZAR_DESCARGA_PERSONAS_ERROR,
+    OBTENER_PERSONA_ELIMINAR,
+    PERSONA_ELIMINADO_EXITO,
+    PERSONA_ELIMINADO_ERROR
 } from '../types'
 
 const initialState = {
@@ -33,6 +36,22 @@ export default function(state=initialState, action) {
                 personas: [],
                 error: true,
                 persona: {}
+            }
+        case OBTENER_PERSONA_ELIMINAR:
+            return {
+                ...state,
+                error: null
+            }
+        case PERSONA_ELIMINADO_EXITO:
+            return {
+                ...state,
+                error: null,
+                personas: state.personas.filter(persona => persona.id !== action.payload)
+            }
+        case PERSONA_ELIMINADO_ERROR:
+            return {
+                ...state,
+                error: true
             }
         default:
             return state;

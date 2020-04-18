@@ -56,7 +56,8 @@ export const obtenerPersonaElmimnar = () => ({
 })
 
 export const eliminarPersonaExito = id => ({
-    type: PERSONA_ELIMINADO_EXITO
+    type: PERSONA_ELIMINADO_EXITO,
+    payload: id
 })
 
 export const eliminarPersonaError = () => ({
