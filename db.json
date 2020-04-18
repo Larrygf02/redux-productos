@@ -16,5 +16,16 @@
       "id": 6
     }
   ],
-  "personas": []
+  "personas": [
+    {
+      "nombre": "Raul",
+      "edad": "26",
+      "id": 1
+    },
+    {
+      "nombre": "Peque Grace",
+      "edad": "26",
+      "id": 2
+    }
+  ]
 }

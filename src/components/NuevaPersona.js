@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { crearNueva } from '../actions/'
 import { validarFormularioAction, validacionExito, validacionError } from '../actions/validacionAction'
 import { useDispatch, useSelector } from 'react-redux'
 import { crearNuevaPersonaAction } from '../actions/personasAction'
 
 
-const NuevoProducto = ({history}) => {
+const NuevaPersona = ({history}) => {
     //state
     const [ nombre, guardarNombre ] = useState('')
     const [ edad, guardarEdad ] = useState('');
@@ -79,4 +78,4 @@ const NuevoProducto = ({history}) => {
     )
 }
 
-export default NuevoProducto;
+export default NuevaPersona;

@@ -10,6 +10,7 @@ import NuevoProducto from './components/NuevoProducto'
 import EditarProducto from './components/EditarProducto'
 import Productos from './components/Productos'
 import Personas from './components/Personas';
+import NuevaPersona from './components/NuevaPersona';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/productos/nuevo" component={NuevoProducto}></Route>
             <Route exact path="/productos/editar/:id" component={EditarProducto}></Route>
             <Route exact path="/personas" component={Personas}></Route>
+            <Route exact path="/personas/nuevo" component={NuevaPersona}></Route>
           </Switch>
         </div>
       </Provider>
