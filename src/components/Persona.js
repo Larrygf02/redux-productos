@@ -2,8 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
-import { useDisptach } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { borrarPersonaAction } from '../actions/personasAction';
+
 const Persona = ({persona}) => {
+    // dispatch 
+    const dispatch = useDispatch()
     const confirmarElimnarPersona = id => {
         Swal.fire({
             title: 'Estas seguro?',
@@ -22,6 +26,8 @@ const Persona = ({persona}) => {
                     'success'
                 )
                 // Llamar a la accion
+                console.log(id)
+                dispatch(borrarPersonaAction(id))
             }
         })
     }
