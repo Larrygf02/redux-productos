@@ -1,16 +1,19 @@
 import React, { Fragment, useEffect }from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import Persona from './Persona';
-import { Link } from 'react-router-dom'
 import { obtenerComprasAction } from '../actions/comprasAction';
 import Compra from './Compra';
+import { obtenerProductoAction } from '../actions/productosAction';
+import NuevaCompra from './NuevaCompra';
 
 const Compras = () => {
     // Mandar llamar la funcion principal
     const dispatch = useDispatch()
     useEffect(() => {
-        const cargarCompras = () => dispatch(obtenerComprasAction())
-        cargarCompras();
+        const cargarDatos = () => {
+            dispatch(obtenerComprasAction())
+            dispatch(obtenerProductoAction())
+        } 
+        cargarDatos();
     }, []);
 
     // acceder al state
@@ -36,9 +39,7 @@ const Compras = () => {
                 </tbody>
             </table>
             {loading ? <p>Cargando...</p> : null}
-            <Link to={'/compras/nuevo'} className="btn btn-danger nuevo-post d-block d-md-inline-block">
-                    Agregar Compra &#43;
-            </Link>
+            <NuevaCompra></NuevaCompra>
         </Fragment>
     )
 }
