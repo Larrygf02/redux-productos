@@ -31,6 +31,8 @@ export default function(state=initialState, action) {
                 loading: false,
                 error: false,
             }
+        default:
+            return state
     }
 }
 

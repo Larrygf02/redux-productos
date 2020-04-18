@@ -12,6 +12,7 @@ const Header = () => {
                     Productos
                 </Link>
                 <Link to={'/personas'} className="btn btn-danger d-block">Personas</Link>
+                <Link to={'/compras'} className="btn btn-danger d-block">Compras</Link>
             </div>
         </nav>
     )

@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import Persona from './Persona';
 import { Link } from 'react-router-dom'
 import { obtenerComprasAction } from '../actions/comprasAction';
+import Compra from './Compra';
 
-const Personas = () => {
+const Compras = () => {
     // Mandar llamar la funcion principal
     const dispatch = useDispatch()
     useEffect(() => {
@@ -31,20 +32,16 @@ const Personas = () => {
                 </thead>
                 <tbody>
                     {compras.map(compra => (
-                        <tr>
-                            <td>{compra.persona}</td>
-                            <td>{compra.producto}</td>
-                            <td>{compra.cantidad}</td>
-                        </tr>
+                        <Compra key={compra.id} compra={compra}></Compra>
                     ))}
                 </tbody>
             </table>
             {loading ? <p>Cargando...</p> : null}
-            <Link to={'/personas/nuevo'} className="btn btn-danger nuevo-post d-block d-md-inline-block">
-                    Agregar Persona &#43;
+            <Link to={'/compras/nuevo'} className="btn btn-danger nuevo-post d-block d-md-inline-block">
+                    Agregar Compra &#43;
             </Link>
         </Fragment>
     )
 }
 
-export default Personas
+export default Compras
