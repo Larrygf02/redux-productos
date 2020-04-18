@@ -7,7 +7,34 @@ import {
     PERSONA_ELIMINADO_ERROR
 } from '../types'
 import clienteAxios from '../config/axios'
+import { AGREGAR_PERSONA, AGREGAR_PERSONA_EXITO, AGREGAR_PERSONA_ERROR } from '../types/personaType';
 
+// crear nueva persona
+export function crearNuevaPersona(persona) {
+    return (dispatch) => {
+        dispatch(nuevaPersona());
+        clienteAxios.post('/personas', persona)
+            .then(respuesta => {
+                dispatch( agregarPersonaExito(persona))
+            })
+            .catch(error => {
+                dispatch( agregarPersonaError())
+            })
+    }
+}
+
+export const nuevaPersona = () => ({
+    type: AGREGAR_PERSONA
+})
+
+export const agregarPersonaExito = persona => ({
+    type: AGREGAR_PERSONA_EXITO,
+    payload: persona
+})
+
+export const agregarPersonaError = () => ({
+    type: AGREGAR_PERSONA_ERROR
+})
 //obtener estado de personas
 export function obtenerPersonasAction() {
     return (dispatch) => {
