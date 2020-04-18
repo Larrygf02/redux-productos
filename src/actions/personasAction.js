@@ -10,7 +10,7 @@ import clienteAxios from '../config/axios'
 import { AGREGAR_PERSONA, AGREGAR_PERSONA_EXITO, AGREGAR_PERSONA_ERROR } from '../types/personaType';
 
 // crear nueva persona
-export function crearNuevaPersona(persona) {
+export function crearNuevaPersonaAction(persona) {
     return (dispatch) => {
         dispatch(nuevaPersona());
         clienteAxios.post('/personas', persona)

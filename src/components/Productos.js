@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Producto from './Producto'
 import { useDispatch, useSelector } from 'react-redux'
 import { obtenerProductosAction } from '../actions/productosAction'
+import { Link } from 'react-router-dom'
 
 const Productos = () => {
     // Mandar llamar la funcion principal
@@ -36,7 +37,10 @@ const Productos = () => {
                     ))}
                 </tbody>
             </table>
-            { loading ? 'Cargando...': null}
+            { loading ? <p>Cargando...</p>: null}
+            <Link to={'/productos/nuevo'} className="btn btn-danger nuevo-post d-block d-md-inline-block">
+                Agregar Producto &#43;
+            </Link>
 
 
         </React.Fragment>
