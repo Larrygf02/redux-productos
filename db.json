@@ -45,6 +45,30 @@
       "persona": 2,
       "producto": 2,
       "cantidad": 1
+    },
+    {
+      "persona": 2,
+      "producto": 5,
+      "cantidad": "2",
+      "id": 3
+    },
+    {
+      "persona": 1,
+      "producto": 6,
+      "cantidad": "1",
+      "id": 4
+    },
+    {
+      "persona": 1,
+      "producto": 2,
+      "cantidad": "2",
+      "id": 5
+    },
+    {
+      "persona": 2,
+      "producto": 2,
+      "cantidad": "3",
+      "id": 6
     }
   ]
 }

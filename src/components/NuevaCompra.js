@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { obtenerPersonasAction } from '../actions/personasAction';
 import { obtenerProductosAction } from '../actions/productosAction';
 import { validarFormularioAction, validacionExito, validacionError } from '../actions/validacionAction';
+import { crearNuevaCompraAction } from '../actions/comprasAction';
 
 const NuevaCompra = () => {
     const dispatch = useDispatch()
@@ -20,7 +21,7 @@ const NuevaCompra = () => {
     const [ producto, guardarProducto ] = useState(0)
     const [ cantidad, guardarCantidad ] = useState(0)
     // formulario
-
+    const agregarCompra = (compra) => dispatch(crearNuevaCompraAction(compra))
     const validarFormulario = () => dispatch( validarFormularioAction())
     const exitoValidacion = () => dispatch( validacionExito());
     const errorValidacion = () => dispatch( validacionError());
@@ -32,15 +33,14 @@ const NuevaCompra = () => {
             errorValidacion()
             return;
         }
-
+        
         exitoValidacion()
         // crear la nueva compra
-        let compra = {
+        agregarCompra({
             persona,
             producto,
             cantidad
-        }
-        console.log(compra)
+        })
     }
     return (
         <div className="card border-primary mb-3">

@@ -9,12 +9,21 @@ import {
 import clienteAxios from "../config/axios";
 
 // crear una nueva compra
-export function crearNuevaCompra(compra) {
+export function crearNuevaCompraAction(compra) {
     return (dispatch) => {
+        console.log(compra)
         dispatch(nuevaCompra());
         // Insertar en la api
         clienteAxios.post('/compras', compra)
-            .then(respuesta => {
+            .then(async respuesta => {
+                console.log('respuesta', respuesta)
+                const {data: personas} = await clienteAxios.get('/personas')
+                const { data: productos} = await clienteAxios.get('/productos')
+                let pers_nombre = personas.filter(persona => persona.id === compra.persona)[0].nombre
+                let prod_nombre = productos.filter(producto => producto.id === compra.producto)[0].nombre
+                compra.persona_nombre = pers_nombre
+                compra.producto_nombre = prod_nombre
+                compra.id = respuesta.data.id
                 dispatch(agregarCompraExito(compra))
             })
             .catch(error => {
