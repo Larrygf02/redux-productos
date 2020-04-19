@@ -1,10 +1,40 @@
 import { 
     COMENZAR_DESCARGA_COMPRAS, 
     COMENZAR_DESCARGA_COMPRAS_EXITOSA,
-    COMENZAR_DESCARGA_COMPRAS_ERROR 
+    COMENZAR_DESCARGA_COMPRAS_ERROR,
+    AGREGAR_COMPRA,
+    AGREGAR_COMPRA_EXITO,
+    AGREGAR_COMPRA_ERROR
 } from "../types/comprasTypes";
 import clienteAxios from "../config/axios";
 
+// crear una nueva compra
+export function crearNuevaCompra(compra) {
+    return (dispatch) => {
+        dispatch(nuevaCompra());
+        // Insertar en la api
+        clienteAxios.post('/compras', compra)
+            .then(respuesta => {
+                dispatch(agregarCompraExito(compra))
+            })
+            .catch(error => {
+                console.log(error)
+                dispatch(agregarCompraError())
+            })
+    }
+}
+
+export const nuevaCompra = () => ({
+    type: AGREGAR_COMPRA
+})
+export const agregarCompraExito = compra => ({
+    type: AGREGAR_COMPRA_EXITO,
+    payload: compra
+})
+
+export const agregarCompraError = () => ({
+    type: AGREGAR_COMPRA_ERROR
+})
 // obtener estados de compras
 export function obtenerComprasAction() {
     return (dispatch) => {

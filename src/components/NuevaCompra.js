@@ -41,7 +41,7 @@ const NuevaCompra = () => {
                         <div className="col">
                             <div className="form-group ml-4">
                                 <label htmlFor="">Producto</label>
-                                <select className="form-control">
+                                <select className="form-control" value={producto} onChange={e => guardarProducto(Number(e.target.value))}>
                                     <option value="0">Escoga un producto</option>
                                     {productos.map(producto => (
                                         <option key={producto.id} value={producto.id}>{producto.nombre}</option>
