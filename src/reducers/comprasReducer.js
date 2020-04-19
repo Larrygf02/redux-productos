@@ -6,7 +6,6 @@ import {
     AGREGAR_COMPRA_EXITO,
     AGREGAR_COMPRA_ERROR
 } from "../types/comprasTypes";
-import { AGREGAR_PERSONA_EXITO } from "../types/personaType";
 
 const initialState = {
     compras: [],

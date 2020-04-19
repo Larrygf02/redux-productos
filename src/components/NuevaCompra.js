@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { obtenerPersonasAction } from '../actions/personasAction';
 import { obtenerProductosAction } from '../actions/productosAction';
+import { validarFormularioAction, validacionExito, validacionError } from '../actions/validacionAction';
 
 const NuevaCompra = () => {
     const dispatch = useDispatch()
@@ -18,8 +19,28 @@ const NuevaCompra = () => {
     const [ persona, guardarPersona ] = useState(0)
     const [ producto, guardarProducto ] = useState(0)
     const [ cantidad, guardarCantidad ] = useState(0)
+    // formulario
+
+    const validarFormulario = () => dispatch( validarFormularioAction())
+    const exitoValidacion = () => dispatch( validacionExito());
+    const errorValidacion = () => dispatch( validacionError());
     const submitNuevaCompra = e => {
         e.preventDefault()
+        validarFormulario()
+        // validar formulario
+        if (persona === 0 || producto === 0 || cantidad === 0) {
+            errorValidacion()
+            return;
+        }
+
+        exitoValidacion()
+        // crear la nueva compra
+        let compra = {
+            persona,
+            producto,
+            cantidad
+        }
+        console.log(compra)
     }
     return (
         <div className="card border-primary mb-3">
@@ -52,7 +73,7 @@ const NuevaCompra = () => {
                         <div className="col">
                             <div className="form-group ml-4">
                                 <label htmlFor="">Cantidad</label>
-                                <input type="number" className="form-control"/>
+                                <input type="number" className="form-control" value={cantidad} onChange={e => guardarCantidad(e.target.value)}/>
                             </div>
                         </div>
                     </div>
