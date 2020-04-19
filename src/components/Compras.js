@@ -14,7 +14,7 @@ const Compras = () => {
             dispatch(obtenerProductoAction())
         } 
         cargarDatos();
-    }, []);
+    }, [dispatch]);
 
     // acceder al state
     const loading = useSelector(state => state.compras.loading)

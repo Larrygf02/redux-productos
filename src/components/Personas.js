@@ -10,7 +10,7 @@ const Personas = () => {
     useEffect(() => {
         const cargarPersonas = () => dispatch(obtenerPersonasAction())
         cargarPersonas();
-    }, []);
+    }, [dispatch]);
 
     // acceder al state
     const loading = useSelector(state => state.personas.loading)

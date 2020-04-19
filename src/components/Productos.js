@@ -10,7 +10,7 @@ const Productos = () => {
     useEffect(() => {
         const cargarProductos = () => dispatch(obtenerProductosAction())
         cargarProductos();
-    }, []);
+    }, [dispatch]);
 
     //acceder al state
     const loading = useSelector(state => state.productos.loading)
