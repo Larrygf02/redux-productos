@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { obtenerPersonasAction } from '../actions/personasAction';
+import { obtenerProductosAction } from '../actions/productosAction';
 
 const NuevaCompra = () => {
     const dispatch = useDispatch()
     useEffect(() => {
-        const cargarPersonas = () => dispatch(obtenerPersonasAction())
-        cargarPersonas();
+        const cargarDatos = () => {
+            dispatch(obtenerProductosAction())
+            dispatch(obtenerPersonasAction())
+        }
+        cargarDatos();
     }, [dispatch]);
     const personas = useSelector(state => state.personas.personas)
+    const productos = useSelector(state => state.productos.productos)
     // state
-    const [ persona, guardarPersona ] = useState('')
-    const [ producto, guardarProducto ] = useState(1)
+    const [ persona, guardarPersona ] = useState(0)
+    const [ producto, guardarProducto ] = useState(0)
     const [ cantidad, guardarCantidad ] = useState(0)
     const submitNuevaCompra = e => {
         e.preventDefault()
@@ -26,9 +31,9 @@ const NuevaCompra = () => {
                             <div className="form-group">
                                 <label htmlFor="">Persona</label>
                                 <select className="form-control" value={persona} onChange={e => guardarPersona(Number(e.target.value))}>
-                                    <option value="">Escoga una persona</option>
+                                    <option value="0">Escoga una persona</option>
                                     {personas.map(persona => (
-                                        <option key={persona.id}>{persona.nombre}</option>
+                                        <option key={persona.id} value={persona.id}>{persona.nombre}</option>
                                     ))}
                                 </select>
                             </div>
@@ -37,7 +42,10 @@ const NuevaCompra = () => {
                             <div className="form-group ml-4">
                                 <label htmlFor="">Producto</label>
                                 <select className="form-control">
-                                    <option value=""></option>
+                                    <option value="0">Escoga un producto</option>
+                                    {productos.map(producto => (
+                                        <option key={producto.id} value={producto.id}>{producto.nombre}</option>
+                                    ))}
                                 </select>
                             </div>
                         </div>
